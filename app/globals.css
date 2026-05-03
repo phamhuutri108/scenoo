@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@theme {
+  /* Surface / Background */
+  --color-background: #f9f9ff;
+  --color-surface: #f9f9ff;
+  --color-surface-bright: #f9f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f3fd;
+  --color-surface-container: #ecedf7;
+  --color-surface-container-high: #e6e7f2;
+  --color-surface-container-highest: #e1e2ec;
+  --color-surface-dim: #d8d9e3;
+  --color-surface-variant: #e1e2ec;
+  --color-surface-tint: #005ac2;
+
+  /* On-Surface */
+  --color-on-background: #191b23;
+  --color-on-surface: #191b23;
+  --color-on-surface-variant: #424754;
+
+  /* Primary */
+  --color-primary: #0058be;
+  --color-primary-container: #2170e4;
+  --color-primary-fixed: #d8e2ff;
+  --color-primary-fixed-dim: #adc6ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #fefcff;
+  --color-on-primary-fixed: #001a42;
+  --color-on-primary-fixed-variant: #004395;
+  --color-inverse-primary: #adc6ff;
+
+  /* Secondary */
+  --color-secondary: #575e70;
+  --color-secondary-container: #d9dff5;
+  --color-secondary-fixed: #dce2f7;
+  --color-secondary-fixed-dim: #c0c6db;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #5c6274;
+  --color-on-secondary-fixed: #141b2b;
+  --color-on-secondary-fixed-variant: #404758;
+
+  /* Tertiary */
+  --color-tertiary: #924700;
+  --color-tertiary-container: #b75b00;
+  --color-tertiary-fixed: #ffdcc6;
+  --color-tertiary-fixed-dim: #ffb786;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #fffbff;
+  --color-on-tertiary-fixed: #311400;
+  --color-on-tertiary-fixed-variant: #723600;
+
+  /* Outline */
+  --color-outline: #727785;
+  --color-outline-variant: #c2c6d6;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* Inverse */
+  --color-inverse-surface: #2e3038;
+  --color-inverse-on-surface: #eff0fa;
+
+  /* Brand */
+  --color-brand-amber: #f59e0b;
+
+  /* Breakdown Tag Colors — International Industry Standard */
+  --color-tag-cast: #FF0000;
+  --color-tag-props: #8B00FF;
+  --color-tag-wardrobe: #00BFFF;
+  --color-tag-sfx: #0066CC;
+  --color-tag-makeup: #FF6600;
+  --color-tag-sound: #8B4513;
+  --color-tag-stunts: #FF8C00;
+  --color-tag-extras-atm: #228B22;
+  --color-tag-extras-sil: #D4B800;
+  --color-tag-vehicles: #FF69B4;
+  --color-tag-equipment: #C8950A;
+  --color-tag-notes: #555555;
+
+  /* Typography */
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Monaco", "Courier New", monospace;
+}
+
+@layer utilities {
+  .text-display {
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+  .text-h1 {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+  .text-h2 {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+  .text-h3 {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    font-weight: 600;
+  }
+  .text-body-lg {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+  .text-body-md {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+  .text-label-md {
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+  }
+  .text-label-sm {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+  }
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+
+  /* Custom thin scrollbar for panels */
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
+
+  /* Script paper elevation */
+  .script-paper {
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+  }
+
+  /* Shotlist scrollable container — hide native scrollbar on all browsers */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+html {
+  zoom: 0.8;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f9f9ff;
+  color: #191b23;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scale Compensation for Viewport Units ──
+   At zoom: 0.8, 100vh only covers 80% of the physical screen.
+   100 / 0.8 = 125, so we must compensate to fill the screen. */
+@layer utilities {
+  .h-screen { height: 125vh !important; }
+  .min-h-screen { min-height: 125vh !important; }
+  .w-screen { width: 125vw !important; }
+  .min-w-screen { min-width: 125vw !important; }
+}
